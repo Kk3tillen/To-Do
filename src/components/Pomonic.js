@@ -1,5 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
-// não conheço fontawesome, mas fica a vontade pra alterar os icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPause, faPlay, faRedo } from '@fortawesome/free-solid-svg-icons';
+
 
 export function Pomonic() {
     const [time, setTime] = useState(1500);
@@ -37,6 +39,7 @@ export function Pomonic() {
 
     return(
         <div className="Pomonic">
+            <h1>Pomonic</h1>
             <Timer time={time} />
             <Controls startTimer={startTimer} stopTimer={stopTimer} resetTime={resetTime}/>
         </div>
@@ -52,21 +55,19 @@ function formattedTime(seconds){
   };
 
 function Timer({time}) {
-    return formattedTime(time)
+    return (
+        <div className="timer-display">
+            {formattedTime(time)}
+        </div>
+    );
 };
 
 const Controls = ({ startTimer, stopTimer, resetTime }) => {
     return (
         <div className="buttons-container">
-            <button className="" onClick={stopTimer}>
-                <img src="" alt="pause" />
-            </button>
-            <button id="" onClick={startTimer}>
-                <img src="" alt="play" />
-            </button>
-            <button id="" onClick={resetTime}>
-                <img src="" alt="reset" />
-            </button>
+            <FontAwesomeIcon icon={faPause} onClick={stopTimer} alt="pausa" id="stop-time"/>
+            <FontAwesomeIcon icon={faPlay} onClick={startTimer} alt="play" id="play-time"/>
+            <FontAwesomeIcon icon={faRedo} onClick={resetTime}  alt="resetar"id="reset-time"/>
         </div>
     );
 };

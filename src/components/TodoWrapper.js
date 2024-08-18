@@ -3,7 +3,6 @@ import { TodoForm } from "./TodoForm";
 import { Todo } from "./Todo";
 import { v4 as  uuidv4} from "uuid"
 import { EditTodoForm } from "./EditTodoForm";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 uuidv4();
 
 export const TodoWrapper = () => {
